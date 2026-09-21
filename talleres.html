@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talleres y Capacitaciones - Oro Verde Conecta</title>
+    <style>
+        :root {
+            --azul-noche: #192F33;
+            --verde-azulado: #145A63;
+            --azul-tenue: #4E7180;
+            --verde-bosque: #0E2F26;
+            --verde-foresta: #3B5948;
+            --sage-muteado: #6B7E66;
+            --fondo-claro: #F4F6F5;
+            --blanco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--fondo-claro);
+            color: var(--azul-noche);
+        }
+
+        header {
+            background-color: var(--azul-noche);
+            color: var(--blanco);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: var(--verde-bosque);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--verde-foresta);
+            padding-bottom: 10px;
+        }
+
+        .detail-card {
+            background-color: var(--blanco);
+            border-left: 6px solid var(--verde-azulado);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-info h3 {
+            color: var(--azul-noche);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .detail-info p {
+            color: var(--azul-tenue);
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            background-color: var(--fondo-claro);
+            color: var(--verde-bosque);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid var(--sage-muteado);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background-color: var(--verde-foresta);
+            color: var(--blanco);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--verde-azulado);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO DE TALLERES -->
+    <header>
+        <div class="logo">🌿 ORO VERDE CONECTA</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Volver al Inicio</a></li>
+                <li><a href="deportes.html">Deportes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>TALLERES Y CAPACITACIONES</h1>
+
+        <!-- Curso 1 -->
+        <div class="detail-card">
+            <div class="detail-info">
+                <h3>Taller de Electricidad Básica</h3>
+                <p>Aprendé instalaciones domiciliarias, normas de seguridad y reparación de artefactos.</p>
+            </div>
+            <a href="#" class="tag">Inscribirse</a>
+        </div>
+
+        <!-- Curso 2 -->
+        <div class="detail-card">
+            <div class="detail-info">
+                <h3>Huerta Orgánica y Compostaje</h3>
+                <p>Técnicas de cultivo agroecológico, armado de huertas urbanas y gestión de residuos.</p>
+            </div>
+            <a href="#" class="tag">Inscribirse</a>
+        </div>
+
+        <!-- Curso 3 -->
+        <div class="detail-card">
+            <div class="detail-info">
+                <h3>Capacitación en Oficios Digitales</h3>
+                <p>Herramientas informáticas, manejo de PC y herramientas de productividad para el trabajo.</p>
+            </div>
+            <a href="#" class="tag">Inscribirse</a>
+        </div>
+
+        <a href="index.html" class="back-link">&larr; Volver a la página principal</a>
+    </div>
+
+</body>
+</html>
