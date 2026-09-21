@@ -2,11 +2,363 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Oro Verde Proyecto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oro Verde Conecta</title>
+    <style>
+        :root {
+            --azul-noche: #192F33;
+            --verde-azulado: #145A63;
+            --azul-tenue: #4E7180;
+            --verde-bosque: #0E2F26;
+            --verde-foresta: #3B5948;
+            --sage-muteado: #6B7E66;
+            --fondo-claro: #F4F6F5;
+            --blanco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--fondo-claro);
+            color: var(--azul-noche);
+        }
+
+        /* ==========================================
+           1. INICIO: ENCABEZADO Y NAVEGACIÓN
+           ========================================== */
+        header {
+            background-color: var(--azul-noche);
+            color: var(--blanco);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--sage-muteado);
+        }
+        /* ==========================================
+           FIN: ENCABEZADO Y NAVEGACIÓN
+           ========================================== */
+
+
+        /* ==========================================
+           2. INICIO: SECCIÓN HERO (BIENVENIDA)
+           ========================================== */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--azul-noche);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--azul-tenue);
+        }
+        /* ==========================================
+           FIN: SECCIÓN HERO
+           ========================================== */
+
+
+        /* ==========================================
+           3. INICIO: SECCIÓN PRINCIPAL / TARJETAS (NIVEL 1)
+           ========================================== */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--verde-bosque);
+            border-radius: 16px;
+            padding: 40px 30px;
+            color: var(--blanco);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(25, 47, 51, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: #D1DCD8;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--verde-azulado);
+            color: var(--blanco);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--azul-tenue);
+        }
+        /* ==========================================
+           FIN: SECCIÓN PRINCIPAL / TARJETAS
+           ========================================== */
+
+
+        /* ==========================================
+           4. INICIO: SECCIÓN DETALLE TALLERES (NIVEL 2)
+           ========================================== */
+        .section-detalle {
+            max-width: 900px;
+            margin: 60px auto 40px;
+            padding: 0 20px;
+        }
+
+        .section-detalle h2.titulo-seccion {
+            color: var(--verde-bosque);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--verde-foresta);
+            padding-bottom: 10px;
+        }
+
+        .detail-card {
+            background-color: var(--blanco);
+            border-left: 6px solid var(--verde-azulado);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .detail-info h3 {
+            color: var(--azul-noche);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .detail-info p {
+            color: var(--azul-tenue);
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            background-color: var(--fondo-claro);
+            color: var(--verde-bosque);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: 1px solid var(--sage-muteado);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background-color: var(--verde-foresta);
+            color: var(--blanco);
+        }
+        /* ==========================================
+           FIN: SECCIÓN DETALLE TALLERES
+           ========================================== */
+
+
+        /* ==========================================
+           5. INICIO: SECCIÓN DETALLE DEPORTES (NIVEL 2)
+           ========================================== */
+        /* (Acá Franco o vos pueden agregar los estilos de deportes cuando les toque) */
+        /* ==========================================
+           FIN: SECCIÓN DETALLE DEPORTES
+           ========================================== */
+
+
+        /* ==========================================
+           6. INICIO: PIE DE PÁGINA (FOOTER)
+           ========================================== */
+        footer {
+            background-color: var(--azul-noche);
+            color: var(--sage-muteado);
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+        /* ==========================================
+           FIN: PIE DE PÁGINA
+           ========================================== */
+    </style>
 </head>
 <body>
-    <h1>Proyecto OV</h1>
-    <h1>wep 👌</h1>
-    <p>Próximamente el listado de eventos y talleres.</p>
+
+    <!-- ==========================================================================
+         BLOQUE 1: NAVEGACIÓN Y ENCABEZADO (Editar aquí la barra superior)
+         ========================================================================== -->
+    <header>
+        <div class="logo">🌿 ORO VERDE CONECTA</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#talleres">Talleres</a></li>
+                <li><a href="#deportes">Deportes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ==========================================================================
+         BLOQUE 2: BIENVENIDA / HERO (Editar aquí el título principal)
+         ========================================================================== -->
+    <section id="inicio" class="hero">
+        <h1>Bienvenido a Oro Verde Conecta</h1>
+        <p>Tu punto de encuentro con la comunidad y los servicios locales.</p>
+    </section>
+
+
+    <!-- ==========================================================================
+         BLOQUE 3: TARJETAS PRINCIPALES - ACCESOS RÁPIDOS
+         ========================================================================== -->
+    <main class="main-container">
+        
+        <!-- Tarjeta 1: Enlaza directo a la sección de talleres abajo -->
+        <div class="card">
+            <div class="card-content">
+                <h2>TALLERES Y CAPACITACIONES</h2>
+                <p>Oficios, cursos municipales y desarrollo comunitario para todas las edades.</p>
+            </div>
+            <a href="#talleres" class="btn">VER MÁS</a>
+        </div>
+
+        <!-- Tarjeta 2: Enlaza directo a la sección de deportes abajo -->
+        <div class="card">
+            <div class="card-content">
+                <h2>DEPORTES Y RECREACIÓN</h2>
+                <p>Escuelitas, reservas de canchas y eventos deportivos barriales.</p>
+            </div>
+            <a href="#deportes" class="btn">VER MÁS</a>
+        </div>
+
+    </main>
+
+
+    <!-- ==========================================================================
+         BLOQUE 4: APARTADO TALLERES (ZONA DE TRABAJO DE TALLERES)
+         ========================================================================== -->
+    <section id="talleres" class="section-detalle">
+        <h2 class="titulo-seccion">TALLERES Y CAPACITACIONES</h2>
+
+        <!-- Curso 1 -->
+        <div class="detail-card">
+            <div class="detail-info">
+                <h3>Taller de Electricidad Básica</h3>
+                <p>Aprendé instalaciones domiciliarias, normas de seguridad y reparación de artefactos.</p>
+            </div>
+            <a href="#" class="tag">Inscribirse</a>
+        </div>
+
+        <!-- Curso 2 -->
+        <div class="detail-card">
+            <div class="detail-info">
+                <h3>Huerta Orgánica y Compostaje</h3>
+                <p>Técnicas de cultivo agroecológico, armado de huertas urbanas y gestión de residuos.</p>
+            </div>
+            <a href="#" class="tag">Inscribirse</a>
+        </div>
+
+        <!-- Curso 3 -->
+        <div class="detail-card">
+            <div class="detail-info">
+                <h3>Capacitación en Oficios Digitales</h3>
+                <p>Herramientas informáticas, manejo de PC y herramientas de productividad para el trabajo.</p>
+            </div>
+            <a href="#" class="tag">Inscribirse</a>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         BLOQUE 5: APARTADO DEPORTES (ZONA DE TRABAJO DE DEPORTES)
+         ========================================================================== -->
+    <section id="deportes" class="section-detalle">
+        <h2 class="titulo-seccion">DEPORTES Y RECREACIÓN</h2>
+
+        <!-- Actividad Deportiva 1 -->
+        <div class="detail-card">
+            <div class="detail-info">
+                <h3>Torneo Barrial de Fútbol</h3>
+                <p>Inscripciones abiertas para equipos masculinos y femeninos en el polideportivo.</p>
+            </div>
+            <a href="#" class="tag">Ver Horarios</a>
+        </div>
+
+        <!-- Actividad Deportiva 2 -->
+        <div class="detail-card">
+            <div class="detail-info">
+                <h3>Escuelita Municipal de Vóley</h3>
+                <p>Entrenamientos libres para jóvenes y adultos los martes y jueves.</p>
+            </div>
+            <a href="#" class="tag">Ver Horarios</a>
+        </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         BLOQUE 6: PIE DE PÁGINA (FOOTER)
+         ========================================================================== -->
+    <footer>
+        <p>&copy; 2026 Oro Verde Conecta - FCyT UADER (Grupo 29)</p>
+    </footer>
+
 </body>
 </html>
