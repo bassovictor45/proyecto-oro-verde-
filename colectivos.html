@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oro Verde Conecta</title>
+    <title>Colectivos - Oro Verde Conecta</title>
     <style>
         :root {
             --azul-noche: #192F33;
@@ -12,8 +12,8 @@
             --verde-bosque: #0E2F26;
             --verde-foresta: #3B5948;
             --sage-muteado: #6B7E66;
-            --fondo-oscuro: #fbfffbf0;
-            --blanco: #ffffff;
+            --fondo-claro: #F4F6F5;
+            --blanco: #FFFFFF;
         }
 
         * {
@@ -24,7 +24,7 @@
         }
 
         body {
-            background-color: var(--fondo--claro);
+            background-color: var(--fondo-claro);
             color: var(--azul-noche);
             display: flex;
             flex-direction: column;
@@ -81,54 +81,36 @@
             color: var(--azul-tenue);
         }
 
-        /* TARJETAS PRINCIPALES (NIVEL 1) */
+        /* CONTENEDOR PRINCIPAL DE LA SECCIÓN */
         .main-container {
-            max-width: 1000px;
+            max-width: 700px;
             margin: 0 auto;
             padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
             flex-grow: 1;
-        }
-
-        .card {
-            background-color: var(--verde-bosque);
-            border-radius: 16px;
-            padding: 40px 30px;
-            color: var(--blanco);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 10px 25px rgba(25, 47, 51, 0.15);
-            transition: transform 0.3s ease;
+            align-items: center;
+            text-align: center;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-content h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .card-content p {
-            font-size: 1rem;
-            color: #D1DCD8;
-            line-height: 1.5;
+        .main-container p {
             margin-bottom: 30px;
+            color: var(--azul-tenue);
+            line-height: 1.6;
         }
 
         .btn {
             display: inline-block;
             background-color: var(--verde-azulado);
             color: var(--blanco);
-            padding: 12px 25px;
+            padding: 14px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             text-align: center;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
             transition: background-color 0.3s;
         }
 
@@ -145,62 +127,123 @@
             font-size: 0.9rem;
             margin-top: 40px;
         }
+
+        /* MODAL */
+        /* GUARDADO POR SI EN EL MAS ADELANTE USAMOS UN SERVICIO QUE SI PERMITA IFRAME 
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.activo {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            height: 85%;
+            background-color: var(--blanco);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background-color: var(--azul-noche);
+            color: var(--blanco);
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        */
     </style>
 </head>
 <body>
 
     <!-- BARRA DE NAVEGACIÓN -->
     <header>
-        <div class="logo"> ORO VERDE CONECTA</div>
+        <div class="logo">🌿 ORO VERDE CONECTA</div>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="talleres.html">Talleres</a></li>
                 <li><a href="deportes.html">Deportes</a></li>
+                <li><a href="colectivos.html">Colectivos</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- BIENVENIDA -->
+    <!-- BIENVENIDA DE LA SECCIÓN -->
     <section class="hero">
-        <h1>Bienvenido a Oro Verde Conecta</h1>
-        <p>Tu punto de encuentro con la comunidad y los servicios locales.</p>
+        <h1>Colectivos</h1>
+        <p>Líneas urbanas e interurbanas de Oro Verde</p>
     </section>
 
-    <!-- TARJETAS PRINCIPALES -->
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="main-container">
-        
-        <!-- Tarjeta Talleres -->
-        <div class="card">
-            <div class="card-content">
-                <h2>TALLERES Y CAPACITACIONES</h2>
-                <p>Oficios, cursos municipales y desarrollo comunitario para todas las edades.</p>
-            </div>
-            <a href="talleres.html" class="btn">VER MÁS</a>
-        </div>
-
-        <!-- Tarjeta Deportes -->
-        <div class="card">
-            <div class="card-content">
-                <h2>DEPORTES Y RECREACIÓN</h2>
-                <p>Escuelitas, reservas de canchas y eventos deportivos barriales.</p>
-            </div>
-            <a href="deportes.html" class="btn">VER MÁS</a>
-        </div>
-        <!-- Tarjeta Colectivos -->
-        <div class="card">
-            <div class="card-content">
-                <h2>LINEAS DE COLECTIVOS</h2>
-                <p>Líneas urbanas e interurbanas, horarios y recorridos de la localidad.</p>
-            </div>
-            <a href="colectivos.html" class="btn">VER MÁS</a>
-        </div>
+        <p>
+            Consultá en tiempo real cuándo llega el colectivo a tu parada,
+            los recorridos y horarios de las líneas que circulan por la localidad.
+        </p>
+     <button class="btn" onclick="abrirVentanaColectivos()">VER HORARIOS EN VIVO</button>
     </main>
 
+    <!-- MODAL CON EL IFRAME -->
+    <!--
+    <div id="modal-colectivos" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-cerrar" onclick="cerrarModal()">✖</button>
+            <iframe 
+                src="https://cuandollega.smartmovepro.net/parana"
+                title="Colectivos en vivo">
+            </iframe>
+        </div>
+    </div> 
+--> 
     <!-- PIE DE PÁGINA -->
     <footer>
         <p>&copy; 2026 Municipio de Oro Verde - Todos los derechos reservados</p>
     </footer>
+<!--
+    <script>
+        function abrirModal() {
+            document.getElementById('modal-colectivos').classList.add('activo');
+        }
 
+        function cerrarModal() {
+            document.getElementById('modal-colectivos').classList.remove('activo');
+        }
+    </script>
+-->
+    <script>
+    function abrirVentanaColectivos() {
+        window.open(
+            'https://cuandollega.smartmovepro.net/parana',
+            'ColectivosOroVerde',
+            'width=500,height=700'
+        );
+    }
+</script>
 </body>
 </html>
