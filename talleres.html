@@ -6,14 +6,19 @@
     <title>Talleres y Capacitaciones - Servicios Oro Verde</title>
     <style>
         :root {
-            --azul-noche: #192F33;
-            --verde-azulado: #145A63;
-            --azul-tenue: #4E7180;
-            --verde-bosque: #0E2F26;
-            --verde-foresta: #3B5948;
-            --sage-muteado: #6B7E66;
-            --fondo-claro: #F4F6F5;
-            --blanco: #FFFFFF;
+            --fondo-pagina: #f7f6f6;      
+            --barra-principal: #174528;      
+            --color-titulo: #1b5f29;    
+            --color-texto: #274938;      
+            --fondo-tarjetas: #205d2f;
+            --texto-tarjetas-titulo: #eaf0ed;
+            --texto-tarjetas-parrafo: #f0f6f3;
+            --borde-tarjetas: #197819f3;
+            --color-blanco: #f4eded;
+            --color-enlaces-hover: #eaeeeb;
+            --fondo-tag: #f5f8f683;
+            --borde-tag: #fbf8f8;
+            --verde-hover: #1c512e;
         }
 
         * {
@@ -24,13 +29,13 @@
         }
 
         body {
-            background-color: var(--fondo-claro);
-            color: var(--azul-noche);
+            background-color: var(--fondo-pagina);
+            color: var(--color-texto);
         }
 
         header {
-            background-color: var(--azul-noche);
-            color: var(--blanco);
+            background-color: var(--barra-principal);
+            color: var(--color-blanco);
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
@@ -49,13 +54,13 @@
         }
 
         nav ul li a {
-            color: var(--blanco);
+            color: var(--color-blanco);
             text-decoration: none;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: var(--sage-muteado);
+            color: var(--color-enlaces-hover);
         }
 
         .container {
@@ -65,57 +70,164 @@
         }
 
         h1 {
-            color: var(--verde-bosque);
+            color: var(--color-titulo);
             font-size: 2rem;
             margin-bottom: 30px;
-            border-bottom: 3px solid var(--verde-foresta);
+            border-bottom: 3px solid var(--verde-hover);
             padding-bottom: 10px;
         }
 
         .detail-card {
-            background-color: var(--blanco);
-            border-left: 6px solid var(--verde-azulado);
+            background-color: var(--fondo-tarjetas);
+            border-left: 6px solid var(--borde-tarjetas);
             padding: 25px;
             margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .detail-content {
+            display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .detail-info {
+            flex: 1;
         }
 
         .detail-info h3 {
-            color: var(--azul-noche);
+            color: var(--texto-tarjetas-titulo);
             font-size: 1.3rem;
             margin-bottom: 8px;
         }
 
         .detail-info p {
-            color: var(--azul-tenue);
+            color: var(--texto-tarjetas-parrafo);
             font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        /* Texto largo oculto por defecto */
+        .full-content {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .full-desc {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        /* Carrusel centrado y con control de hover para las flechas */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin: 15px auto; /* Centrado automático */
+            background-color: #000;
+        }
+
+        .carousel-track {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 90% center;
+            display: none;
+            border-radius: 8px;
+        }
+
+        .carousel-img.active {
+            display: block;
+        }
+
+        /* Flechas ocultas por defecto y aparecen al pasar el mouse */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-weight: bold;
+            z-index: 10;
+            opacity: 0; /* Ocultas por defecto para no tapar las caras */
+            transition: opacity 0.3s ease-in-out; /* Animación de aparición suave */
+        }
+
+        /* Al pasar el mouse por todo el carrusel, las flechas se muestran */
+        .carousel-container:hover .carousel-btn {
+            opacity: 1;
+        }
+
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .btn-toggle {
+            background-color: var(--fondo-tag);
+            color: var(--barra-principal);
+            border: 1px solid var(--borde-tag);
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: background 0.3s;
+        }
+
+        .btn-toggle:hover {
+            background-color: var(--verde-hover);
+            color: var(--color-blanco);
         }
 
         .tag {
-            background-color: var(--fondo-claro);
-            color: var(--verde-bosque);
+            background-color: var(--fondo-tag);
+            color: var(--barra-principal);
             padding: 8px 15px;
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.85rem;
-            border: 1px solid var(--sage-muteado);
+            border: 1px solid var(--borde-tag);
             text-decoration: none;
             transition: background 0.3s;
+            display: inline-block;
         }
 
         .tag:hover {
-            background-color: var(--verde-foresta);
-            color: var(--blanco);
+            background-color: var(--verde-hover);
+            color: var(--color-blanco);
         }
 
         .back-link {
             display: inline-block;
             margin-top: 20px;
-            color: var(--verde-azulado);
+            color: var(--borde-tarjetas);
             text-decoration: none;
             font-weight: 600;
         }
@@ -127,7 +239,7 @@
 </head>
 <body>
 
-    <!-- ENCABEZADO DE TALLERES (CON DEPORTES INCLUIDO) -->
+    <!-- ENCABEZADO DE TALLERES -->
     <header>
         <div class="logo">🌿 SERVICIOS ORO VERDE</div>
         <nav>
@@ -143,33 +255,106 @@
 
         <!-- Curso 1 -->
         <div class="detail-card">
-            <div class="detail-info">
-                <h3>Taller de Electricidad Básica</h3>
-                <p>Aprendé instalaciones domiciliarias, normas de seguridad y reparación de artefactos.</p>
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h3>Taller de Electricidad Básica</h3>
+                    <p class="short-desc">Aprendé instalaciones domiciliarias, normas de seguridad y reparación de artefactos.</p>
+                    
+                    <div class="full-content">
+                        <p class="full-desc">
+                            Este taller está pensado para vecinos de Oro Verde que quieran resolver problemas cotidianos del hogar de forma segura. 
+                            Vemos desde el uso de herramientas básicas hasta el armado de tableros, colocación de tomacorrientes y disyuntores.
+                        </p>
+
+                        <!-- Carrusel centrado y con flechas ocultas hasta hacer hover -->
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                <img src="img/elec1.jpeg" alt="Foto 1 taller electricidad" class="carousel-img active">
+                                <img src="img/elec2.jpeg" alt="Foto 2 taller electricidad" class="carousel-img">
+                                <img src="img/elec3.jpeg" alt="Foto 3 taller electricidad" class="carousel-img">
+                                <img src="img/elec4.jpeg" alt="Foto 4 taller electricidad" class="carousel-img">
+                            </div>
+                            <button class="carousel-btn prev">&larr;</button>
+                            <button class="carousel-btn next">&rarr;</button>
+                        </div>
+
+                        <a href="#" class="tag">Inscribirse al taller</a>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="btn-toggle">Leer más</button>
+                </div>
             </div>
-            <a href="#" class="tag">Inscribirse</a>
         </div>
 
         <!-- Curso 2 -->
         <div class="detail-card">
-            <div class="detail-info">
-                <h3>Huerta Orgánica y Compostaje</h3>
-                <p>Técnicas de cultivo agroecológico, armado de huertas urbanas y gestión de residuos.</p>
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h3>Huerta Orgánica y Compostaje</h3>
+                    <p>Técnicas de cultivo agroecológico, armado de huertas urbanas y gestión de residuos.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="tag">Inscribirse</a>
+                </div>
             </div>
-            <a href="#" class="tag">Inscribirse</a>
         </div>
 
         <!-- Curso 3 -->
         <div class="detail-card">
-            <div class="detail-info">
-                <h3>Capacitación en Oficios Digitales</h3>
-                <p>Herramientas informáticas, manejo de PC y herramientas de productividad para el trabajo.</p>
+            <div class="detail-content">
+                <div class="detail-info">
+                    <h3>Capacitación en Oficios Digitales</h3>
+                    <p>Herramientas informáticas, manejo de PC y herramientas de productividad para el trabajo.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="#" class="tag">Inscribirse</a>
+                </div>
             </div>
-            <a href="#" class="tag">Inscribirse</a>
         </div>
 
         <a href="index.html" class="back-link">&larr; Volver a la página principal</a>
     </div>
 
+    <!-- Script de Interactividad -->
+    <script>
+        const btnToggle = document.querySelector('.btn-toggle');
+        const fullContent = document.querySelector('.full-content');
+
+        btnToggle.addEventListener('click', () => {
+            if (fullContent.style.display === 'block') {
+                fullContent.style.display = 'none';
+                btnToggle.textContent = 'Leer más';
+            } else {
+                fullContent.style.display = 'block';
+                btnToggle.textContent = 'Leer menos';
+            }
+        });
+
+        const images = document.querySelectorAll('.carousel-img');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            images.forEach((img, index) => {
+                img.classList.remove('active');
+                if (index === currentIndex) {
+                    img.classList.add('active');
+                }
+            });
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel();
+        });
+    </script>
 </body>
 </html>
